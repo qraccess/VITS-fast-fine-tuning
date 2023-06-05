@@ -287,6 +287,10 @@ def get_hparams(init=True):
     parser.add_argument('-n', '--max_epochs', type=int, default=50,
                         help='finetune epochs')
     parser.add_argument('--drop_speaker_embed', type=bool, default=False, help='whether to drop existing characters')
+    parser.add_argument('-t', '--train_type', type=str, default="new",
+                        help='is this a new or resuming training?')
+    parser.add_argument('-r', '--resume_dir', type=str, default="./OUTPUT_MODEL",
+                        help='where to get the models to be resumed')
 
     args = parser.parse_args()
     model_dir = os.path.join("./", args.model)
@@ -310,6 +314,8 @@ def get_hparams(init=True):
     hparams.model_dir = model_dir
     hparams.max_epochs = args.max_epochs
     hparams.drop_speaker_embed = args.drop_speaker_embed
+    hparams.train_type = args.train_type
+    hparams.resume_dir = args.resume_dir
     return hparams
 
 
