@@ -270,7 +270,7 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
 
         if os.path.exists(hps.autosave_dir):
             autosave_epoch = int(hps.autosave_epoch)
-            if autosave_epoch > 0 and epoch % autosave_epoch == 0:
+            if autosave_epoch > 0 and global_step % (autosave_epoch*hps.train.eval_interval) == 0:
                 utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch, os.path.join(hps.autosave_dir, "G_{}.pth".format(global_step)))
                 utils.save_checkpoint(net_d, optim_d, hps.train.learning_rate, epoch, os.path.join(hps.autosave_dir, "D_{}.pth".format(global_step)))
                 keep_g_pth = f"G_{global_step}.pth"
