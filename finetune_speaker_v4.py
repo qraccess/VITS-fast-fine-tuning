@@ -267,6 +267,18 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
         utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch,
                               os.path.join(hps.model_dir, "G_latest.pth".format(global_step)))
         utils.save_checkpoint(net_d, optim_d, hps.train.learning_rate, epoch, os.path.join(hps.model_dir, "D_{}.pth".format(global_step)))
+
+        if os.path.exists(hps.autosave_dir):
+            autosave_epoch = int(hps.autosave_epoch)
+            if autosave_epoch > 0 and epoch % autosave_epoch == 0:
+                utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch, os.path.join(hps.autosave_dir, "G_{}.pth".format(global_step)))
+                utils.save_checkpoint(net_d, optim_d, hps.train.learning_rate, epoch, os.path.join(hps.autosave_dir, "D_{}.pth".format(global_step)))
+                keep_g_pth = f"G_{global_step}.pth"
+                keep_d_pth = f"D_{global_step}.pth"
+                for f in os.listdir(hps.autosave_dir):
+                    if f != keep_g_pth and f != keep_d_pth:
+                        os.remove(os.path.join(hps.autosave_dir, f))
+
         old_g=os.path.join(hps.model_dir, "G_{}.pth".format(global_step-1000))
         old_d=os.path.join(hps.model_dir, "D_{}.pth".format(global_step-100))
         if os.path.exists(old_g):
