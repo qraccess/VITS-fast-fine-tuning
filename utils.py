@@ -321,6 +321,8 @@ def get_hparams(init=True):
     hparams.drop_speaker_embed = args.drop_speaker_embed
     hparams.train_type = args.train_type
     hparams.resume_dir = args.resume_dir
+    hparams.autosave_epoch = args.autosave_epoch
+    hparams.autosave_dir = args.autosave_dir
     return hparams
 
 
