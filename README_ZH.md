@@ -26,7 +26,7 @@ English Documentation Please Click [here](https://github.com/yihuitang/VITS-fast
 
 
 ## 微调
-建议使用 [Google Colab](https://colab.research.google.com/drive/1AwIOCB4ArTyn4J0R5ImfSo1gi0aEIzOW?usp=sharing)
+建议使用 [Google Colab](https://colab.research.google.com/drive/17Cxj3YWlr1sw1qqlbWUdHsA0tfFRz3MC?usp=sharing)
 进行微调任务，因为VITS在多语言情况下的某些环境依赖相当难以配置。
 ### 在Google Colab里，我需要花多长时间？
 1. 安装依赖 (3 min)

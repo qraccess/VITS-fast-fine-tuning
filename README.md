@@ -26,7 +26,7 @@ Chinese & Japanese：[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F
 
 
 ## Fine-tuning
-It's recommended to perform fine-tuning on [Google Colab](https://colab.research.google.com/drive/1AwIOCB4ArTyn4J0R5ImfSo1gi0aEIzOW?usp=sharing)
+It's recommended to perform fine-tuning on [Google Colab](https://colab.research.google.com/drive/17Cxj3YWlr1sw1qqlbWUdHsA0tfFRz3MC?usp=sharing)
 because the original VITS has some dependencies that are difficult to configure.
 
 Now supports for resuming training. Check out the above Google Colab link for usage instructions.
