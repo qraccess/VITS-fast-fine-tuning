@@ -291,6 +291,11 @@ def get_hparams(init=True):
                         help='is this a new or resuming training?')
     parser.add_argument('-r', '--resume_dir', type=str, default="./OUTPUT_MODEL",
                         help='where to get the models to be resumed')
+    parser.add_argument('--autosave_epoch', type=int, default=10,
+                        help='auto save checkpoints every n epochs')
+
+    parser.add_argument('--autosave_dir', type=str, default="./AUTOSAVE",
+                        help='auto save dir')
 
     args = parser.parse_args()
     model_dir = os.path.join("./", args.model)
